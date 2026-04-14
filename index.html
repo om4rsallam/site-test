@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional services landing page with 10 comprehensive services, dark/light mode support, and English/Arabic bilingual interface with meeting booking calendar.">
+    <meta name="theme-color" content="#0066ff">
+    <title>Professional Services - Web Development, Design & More</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">PS</div>
+                    <span class="logo-text">Services</span>
+                </div>
+
+                <nav class="nav">
+                    <!-- Language Toggle -->
+                    <button id="langToggle" class="btn-toggle" title="Switch to Arabic">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span class="lang-text">EN</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="btn-toggle" title="Switch to dark mode">
+                        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="icon icon-sun" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-en="Professional Services for Your Business" data-ar="خدمات احترافية لعملك"></h1>
+                <p class="hero-subtitle" data-en="Comprehensive solutions tailored to your needs. Explore our range of expert services designed to help your business thrive." data-ar="حلول شاملة مخصصة لاحتياجاتك. استكشف مجموعتنا من الخدمات الخبيرة المصممة لمساعدة عملك على الازدهار."></p>
+                <div class="hero-buttons">
+                    <button id="heroContactBtn" class="btn btn-primary" data-en="Get Started" data-ar="ابدأ الآن"></button>
+                    <button id="heroLearnBtn" class="btn btn-outline" data-en="Learn More" data-ar="تعرف على المزيد"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-header">
+                <h2 class="services-title" data-en="Our Services" data-ar="خدماتنا"></h2>
+                <p class="services-subtitle" data-en="Discover our comprehensive range of professional services" data-ar="اكتشف مجموعتنا الشاملة من الخدمات الاحترافية"></p>
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Calendar Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-header">
+                <h2 class="booking-title" data-en="Book a Meeting" data-ar="احجز اجتماعًا"></h2>
+                <p class="booking-subtitle" data-en="Schedule a consultation with our team" data-ar="حدد موعدًا للاستشارة مع فريقنا"></p>
+            </div>
+
+            <div class="booking-container">
+                <!-- Calendar Step -->
+                <div class="booking-step active" id="calendarStep">
+                    <div class="month-nav">
+                        <button class="month-nav-btn" id="prevMonth">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <h3 class="month-year" id="monthYear"></h3>
+                        <button class="month-nav-btn" id="nextMonth">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="day-labels" id="dayLabels"></div>
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                </div>
+                
+                <!-- Time Step -->
+                <div class="booking-step" id="timeStep">
+                    <div class="selected-info" id="selectedDateInfo"></div>
+                    <label class="time-slots-label" data-en="Available Time Slots" data-ar="فترات زمنية متاحة"></label>
+                    <div class="time-slots" id="timeSlots"></div>
+                    <div class="button-group">
+                        <button class="btn btn-outline" id="backFromTime" data-en="Back" data-ar="رجوع"></button>
+                        <button class="btn btn-primary" id="nextFromTime" data-en="Next" data-ar="التالي" disabled></button>
+                    </div>
+                </div>
+                
+                <!-- Confirm Step -->
+                <div class="booking-step" id="confirmStep">
+                    <div class="selected-info" id="selectedDateTime"></div>
+                    
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label class="form-label" data-en="Full Name" data-ar="الاسم الكامل"></label>
+                            <input type="text" class="form-input" id="nameInput" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" data-en="Email Address" data-ar="عنوان البريد الإلكتروني"></label>
+                            <input type="email" class="form-input" id="emailInput" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" data-en="Phone Number" data-ar="رقم الهاتف"></label>
+                            <input type="tel" class="form-input" id="phoneInput" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" data-en="Message (Optional)" data-ar="الرسالة (اختياري)"></label>
+                            <textarea class="form-textarea" id="messageInput" name="message"></textarea>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button type="button" class="btn btn-outline" id="backFromConfirm" data-en="Back" data-ar="رجوع"></button>
+                            <button type="submit" class="btn btn-primary" data-en="Book Meeting" data-ar="احجز الاجتماع"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title" data-en="Ready to get started?" data-ar="هل أنت مستعد للبدء؟"></h2>
+                <p class="cta-subtitle" data-en="Let's work together to bring your vision to life with our professional services." data-ar="دعنا نعمل معاً لتحقيق رؤيتك من خلال خدماتنا الاحترافية."></p>
+                <p class="cta-email"><span data-en="Email us at:" data-ar="أرسل لنا بريد إلكتروني على:"></span> <a href="mailto:omarsallam2304@gmail.com" class="email-link">omarsallam2304@gmail.com</a></p>
+                <button id="ctaContactBtn" class="btn btn-primary" data-en="Contact Us" data-ar="اتصل بنا"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">Professional Services</h3>
+                    <p class="footer-text">Delivering excellence in every project we undertake.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-subtitle" data-en="Quick Links" data-ar="روابط سريعة"></h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Home" data-ar="الرئيسية"></a></li>
+                        <li><a href="#" data-en="Services" data-ar="الخدمات"></a></li>
+                        <li><a href="#" data-en="About" data-ar="حول"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-subtitle" data-en="Legal" data-ar="قانوني"></h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية"></a></li>
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="© 2026 Professional Services. All rights reserved." data-ar="© 2026 الخدمات الاحترافية. جميع الحقوق محفوظة."></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
